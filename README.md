@@ -21,6 +21,30 @@ Using docker-compose is straightforward, you can use the following commands:
 - Use `docker-compose logs -f app_watch` to check logs for app_watch service.
 - Use `docker-compose exec app_watch bash` to start a bash shell in the app_watch container.
 
+## Helpers
+- Reset everything `docker system prune -a`
+- Remove not in use cached `docker system prune` A little bit safer to run
+
+## Database helpers
+Sometimes we want to run the database in containers but don't want to use a `Dockerfile` or `docker-compose.yml`, here are few tips I used to run a container from CLI
+
+Running MongoDB container for local usage
+```bash
+docker run --name my-mongo -d mongo
+```
+
+Stop mongo container
+```bash
+docker stop my-mongo
+```
+
+Start stopped mongo container after a system restart
+```bash
+docker start my-mongo
+```
+
+If you want to connect to this container from another container then I would suggest using a `docker-compose.yml` file instead.
+
 ## TODO
 - Add codes on how to build two containers for one service with dev and watch mode.
 - Add instructions on how to start containers manually.

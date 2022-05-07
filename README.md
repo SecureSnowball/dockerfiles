@@ -15,6 +15,7 @@ We can use volumes in `Dockerfile` but it is a painful process and it is not rec
 ## How to use docker-compose
 Using docker-compose is straightforward, you can use the following commands:
 - `docker-compose up -d --build`, it will always rebuild your containers, It is not required but I prefer it to ensure all my changes are reflected in the containers.
+- `docker-compose --file docker-compose-dev.yml up -d --build` to use another docker-compose file, this is useful if you have more than one docker-compose file like dev and watch.
 - `docker-compose down` to stop containers and delete them and the network.
 - Use volumes to store data that should not be deleted when containers are deleted. I prefer having a hidden `.docker` function in the project folder to store volumes
 - Use `docker-compose logs -f` to check logs

@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  app:
+    command: nodemon index.js
+    container_name: docker_watch
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 3000:3000
